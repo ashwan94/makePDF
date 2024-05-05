@@ -1,10 +1,7 @@
 package org.example;
 
 
-import com.itextpdf.text.Document;
-import com.itextpdf.text.Font;
-import com.itextpdf.text.PageSize;
-import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.tool.xml.XMLWorker;
@@ -75,6 +72,10 @@ public class App {
             try(StringReader strReader = new StringReader(htmlStr)){
                 xmlParser.parse(strReader);
             }
+
+            Image png = Image.getInstance("/Users/na/Desktop/Screenshot 2024-05-05 at 10.24.22 AM.png");
+            png.scalePercent(20);
+            document.add(png);
 
             document.add(new Paragraph("하이!", objFont));
             document.add(new Paragraph("이제 문제가 됐던 한글 폰트도 잘 인식하게 되었다", objFont));
